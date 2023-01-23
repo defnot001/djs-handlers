@@ -134,6 +134,6 @@ export class ExtendedClient extends Client {
 
   private async importFile(filePath: string) {
     const file = await import(filePath);
-    return file.default.default;
+    return file.default;
   }
 }
