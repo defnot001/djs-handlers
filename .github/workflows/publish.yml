@@ -26,6 +26,6 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          cmd: build
+          publish: yarn build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
