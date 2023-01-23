@@ -6,17 +6,17 @@ Small package for [discord.js](https://discord.js.org/#/) written in [Typescript
 - Event
 - ExtendedClient
 
-### ExtendedClient
-
-The `ExtendedClient` holds a Collection() of commands and has 2 methods that are exposed to the user.
-
 First, you need to install the package using your package manager.
 
 ```bash
 npm install djs-handlers
 ```
 
-To use the client, you first need to import it and then instantiate the class.
+### ExtendedClient
+
+The `ExtendedClient` holds a `Collection()` of commands and has 2 methods that are exposed to the user.
+
+To use the client, you first need to `import` it and then instantiate the class.
 
 ```ts
 import { ExtendedClient } from 'djs-handlers';
