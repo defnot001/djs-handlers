@@ -1,12 +1,15 @@
 {
   "name": "djs-handlers",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "description": "Extended client functionlity, command and event handler for discord.js v14.",
   "author": {
     "name": "defnot001",
     "email": "defnot001@gmail.com"
   },
+  "files": [
+    "dist/*"
+  ],
   "keywords": [
     "discord.js",
     "typescript",
