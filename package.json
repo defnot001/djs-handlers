@@ -1,0 +1,23 @@
+{
+  "name": "djs-handlers",
+  "version": "1.0.1",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "lint": "tsc && eslint . --ext .ts"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@changesets/cli": "^2.26.0",
+    "discord.js": "^14.7.1",
+    "glob": "^8.1.0",
+    "ts-node": "^10.9.1",
+    "tsup": "^6.5.0",
+    "typescript": "^4.9.4"
+  }
+}
