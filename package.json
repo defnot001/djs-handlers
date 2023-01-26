@@ -1,6 +1,6 @@
 {
   "name": "djs-handlers",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "description": "Extended client functionlity, command and event handler for discord.js v14.",
   "author": {
