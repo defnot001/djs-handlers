@@ -6,6 +6,7 @@ import {
   Collection,
 } from 'discord.js';
 import glob from 'glob';
+import { pathToFileURL } from 'url';
 import { promisify } from 'util';
 import type {
   TClientStartOptions,
@@ -122,7 +123,8 @@ export class ExtendedClient extends Client {
     );
 
     for await (const path of commandPaths) {
-      const command: TCommand = await this.importFile(path, type);
+      const fileURL = pathToFileURL(path);
+      const command: TCommand = await this.importFile(fileURL.toString(), type);
       if (!command.name) return;
 
       this.commands.set(command.name, command);
@@ -132,8 +134,9 @@ export class ExtendedClient extends Client {
     const eventPaths: string[] = await globPromise(`${eventsPath}/*{.ts,.js}`);
 
     for await (const path of eventPaths) {
+      const fileURL = pathToFileURL(path);
       const event: Event<keyof ClientEvents> = await this.importFile(
-        path,
+        fileURL.toString(),
         type,
       );
       this.on(event.name, event.execute);
