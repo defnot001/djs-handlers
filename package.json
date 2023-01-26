@@ -22,6 +22,10 @@
   "bugs": {
     "url": "https://github.com/defnot001/djs-handlers/issues"
   },
+  "exports": {
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.js"
+  },
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
