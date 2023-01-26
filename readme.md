@@ -34,6 +34,7 @@ client.start({
   guildID: 'your guild id, if you want to register the commands to a guild',
   commandsPath: './path/to/commandfolder',
   eventsPath: './path/to/eventfolder',
+  type: 'commonJS',
   globalCommands: false,
   registerCommands: true,
 })
@@ -85,4 +86,10 @@ export default new Event('ready', (client) => {
 });
 ```
 
-If you find any issues, please make sure to report them on the on github.
+If you want to jumpstart your development process, make sure to check out my [djs-template repository](https://github.com/defnot001/djs-template) which provides you with examples and a working layout. Make sure to checkout the branch you are interested in (Typescript, CommonJS, ESModules).
+
+If you find any issues or have suggestions please make sure to report them on the [issue tracker](https://github.com/defnot001/djs-handlers/issues).
+
+You can also write me an [email](mailto:defnot001@gmail.com) and/or join my [discord server](https://discord.gg/wmJ3WBYcZF).
+
+Thank you for using my repository and good luck with your next Discord Bot!
