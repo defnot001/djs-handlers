@@ -32,5 +32,6 @@ export type TClientStartOptions = {
   commandsPath: string;
   eventsPath: string;
   globalCommands: boolean;
+  type: 'commonJS' | 'module';
   registerCommands: boolean;
 };

@@ -29,11 +29,12 @@ export class ExtendedClient extends Client {
       guildID,
       commandsPath,
       eventsPath,
+      type,
       globalCommands,
       registerCommands,
     } = options;
 
-    await this.setModules(commandsPath, eventsPath);
+    await this.setModules(commandsPath, eventsPath, type);
 
     if (registerCommands) {
       const slashCommands: ApplicationCommandDataResolvable[] =
@@ -110,14 +111,18 @@ export class ExtendedClient extends Client {
     }
   }
 
-  private async setModules(commandsPath: string, eventsPath: string) {
+  private async setModules(
+    commandsPath: string,
+    eventsPath: string,
+    type: 'commonJS' | 'module',
+  ) {
     // set the commands to the collection of this client
     const commandPaths: string[] = await globPromise(
       `${commandsPath}/*{.ts,.js}`,
     );
 
     for await (const path of commandPaths) {
-      const command: TCommand = await this.importFile(path);
+      const command: TCommand = await this.importFile(path, type);
       if (!command.name) return;
 
       this.commands.set(command.name, command);
@@ -127,13 +132,21 @@ export class ExtendedClient extends Client {
     const eventPaths: string[] = await globPromise(`${eventsPath}/*{.ts,.js}`);
 
     for await (const path of eventPaths) {
-      const event: Event<keyof ClientEvents> = await this.importFile(path);
+      const event: Event<keyof ClientEvents> = await this.importFile(
+        path,
+        type,
+      );
       this.on(event.name, event.execute);
     }
   }
 
-  private async importFile(filePath: string) {
-    const file = await import(filePath);
-    return file.default.default;
+  private async importFile(filePath: string, type: 'commonJS' | 'module') {
+    if (type === 'commonJS') {
+      const file = await import(filePath);
+      return file.default.default;
+    } else {
+      const file = await import(filePath);
+      return file.default;
+    }
   }
 }
