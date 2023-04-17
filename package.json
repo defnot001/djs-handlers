@@ -1,6 +1,6 @@
 {
   "name": "djs-handlers",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "license": "MIT",
   "description": "Extended client functionlity, command and event handler for discord.js v14.",
   "author": {
@@ -40,7 +40,7 @@
     "access": "public"
   },
   "dependencies": {
-    "discord.js": "^14.7.1",
+    "discord.js": "^14.9.0",
     "glob": "^8.1.0"
   },
   "devDependencies": {
